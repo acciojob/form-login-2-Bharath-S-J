@@ -1,16 +1,53 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<link rel="stylesheet" href="styles.css">
+  <title>Form Alert</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input {
+      margin: 8px;
+      padding: 5px;
+    }
+    button {
+      padding: 6px 12px;
+    }
+  </style>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+
+  <h1>Fill the Form</h1>
+
+  <form id="userForm">
+    <input type="text" name="First Name" id="firstName" placeholder="First Name" required><br>
+    <input type="text" name="Last Name" id="lastName" placeholder="Last Name" required><br>
+    <input type="tel" name="Phone Number" id="phoneNumber" placeholder="Phone Number" required><br>
+    <input type="email" name="Email ID" id="email" placeholder="Email ID" required><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    const form = document.getElementById("userForm");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // prevent page reload
+
+      const firstName = document.getElementById("firstName").value.trim();
+      const lastName = document.getElementById("lastName").value.trim();
+      const phoneNumber = document.getElementById("phoneNumber").value.trim();
+      const email = document.getElementById("email").value.trim();
+
+      alert(
+        `First Name: ${firstName} ` +
+        `Last Name: ${lastName} ` +
+        `Phone Number: ${phoneNumber} ` +
+        `Email ID: ${email}`
+      );
+    });
+  </script>
 
 </body>
-
 </html>
